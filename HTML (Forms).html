@@ -147,6 +147,108 @@
     </form>
     <br />
     <hr />
-    <h3>Form Validation:</h3>
+    <h3>Form Validation: (server side)</h3>
+    <form action="/dummy">
+      <label for="first">First Name</label>
+      <input type="text" name="first" id="first" required />
+      <div>
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          minlength="5"
+          maxlength="12"
+          placeholder="5~12 characters"
+        />
+      </div>
+      <div>
+        <label for="email">Your email</label>
+        <input type="email" id="email" name="email" required />
+        <!-- type="url" also a pattern -->
+        <!-- just checked the patterns, ex: if "@" existed -->
+      </div>
+      <div>
+        <label for="website">Personal url</label>
+        <input
+          type="url"
+          id="website"
+          name="personalURL"
+          placeholder="not required"
+        />
+      </div>
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <br />
+    <hr />
+    <br />
+    <h1>Small Little Tiny Capstone Project</h1>
+    <h2>Race Registratio Form</h2>
+    <br />
+    <form action="/pandas">
+      <div>
+        <label for="first_name">First Name</label>
+        <input
+          type="text"
+          id="first_name"
+          placeholder="e.g.: Zifan"
+          name="first"
+          required
+        />
+      </div>
+      <div>
+        <label for="last_name">Last Name</label>
+        <input
+          type="text"
+          id="last_name"
+          name="last"
+          placeholder="e.g.: Pan"
+          required
+        />
+      </div>
+      <div>
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div>
+        <label for="password">Create Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="5~12 digits"
+          required
+        />
+      </div>
+      <div>
+        <b>Select a race:</b>
+        <br />
+        <input type="radio" id="5k" name="raceLength" />
+        <label for="5k">5K Running</label>
+        <br />
+        <input type="radio" id="half" name="raceLength" />
+        <label for="half">Half Marason</label>
+        <br />
+        <input type="radio" id="full" name="raceLength" />
+        <label for="full">Full Marason</label>
+      </div>
+      <div>
+        <label for="age">Select Your Age Group:</label>
+        <select name="age_group" id="age" required>
+          <option value="" selected disabled>
+            -- Please apecify age group --
+          </option>
+          <option value="0~18">Below 18</option>
+          <option value="18~24">18~24</option>
+          <option value="25~40">25~40</option>
+          <option value="41~60">41~60</option>
+          <option value="61+">61+</option>
+        </select>
+      </div>
+      <div>
+        <button>Sign Up</button>
+      </div>
+    </form>
   </body>
 </html>
