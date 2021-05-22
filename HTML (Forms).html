@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms Demo</title>
+  </head>
+  <body>
+    <h1>Forms Demo/Example</h1>
+
+    <form action="/tacos">
+      <p>
+        <label for="username">Enter a Username:</label>
+        <input type="text" placeholder="Username" id="username" />
+        <!-- if you click words you can type in that box, "for" and "id" gives a connection b/t each other -->
+      </p>
+      <p>
+        <label for="pswd">Enter your password:</label>
+        <input type="password" placeholder="password" id="pswd" name="pass" />
+        <!-- name="pass": pass is the name that will be used to send the data to the server-->
+      </p>
+      <p>
+        <label for="color">Select a color:</label>
+        <input type="color" id="color" />
+      </p>
+      <div>
+        <label>
+          Enter a number:
+          <input type="number" placeholder="enter a number" />
+        </label>
+        <!-- another way -->
+      </div>
+      <div><br /><button>SUBMIT!</button></div>
+      <!-- take you to the "action" (defalut behavior is *submit*)-->
+      <div><br /><button type="button">Just a BUTTON</button></div>
+    </form>
+  </body>
+</html>
