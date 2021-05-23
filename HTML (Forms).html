@@ -39,6 +39,7 @@
             min="1"
             max="10"
             step="3"
+            value="1"
           />
         </label>
         <!-- another way -->
@@ -47,8 +48,8 @@
       <!-- take you to the "action" (defalut behavior is *submit*)-->
       <div><br /><button type="button">Just a BUTTON</button></div>
     </form>
-    <hr />
     <br />
+    <hr />
     <h3>Search Reddit</h3>
     <form action="https://www.reddit.com/search">
       <input type="text" name="q" />
@@ -132,5 +133,20 @@
       <!-- textarea is not an input -->
     </div>
     <!-- almost everything as an input with a "type" except for <select> -->
+    <br />
+    <hr />
+    <h1>Coding Exercise</h1>
+    <form>
+      <label for="username">Username</label>
+      <input placeholder="username" type="text" id="username" name="name" />
+      <br />
+      <label for="password">Password</label>
+      <input placeholder="password" type="password" name="pass" id="password" />
+      <br />
+      <button>Register</button>
+    </form>
+    <br />
+    <hr />
+    <h3>Form Validation:</h3>
   </body>
 </html>
