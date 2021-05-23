@@ -32,7 +32,14 @@
       <div>
         <label>
           Enter a number:
-          <input type="number" placeholder="enter a number" name="num" />
+          <input
+            type="number"
+            placeholder="enter a number"
+            name="num"
+            min="1"
+            max="10"
+            step="3"
+          />
         </label>
         <!-- another way -->
       </div>
@@ -62,10 +69,68 @@
       <!-- if you don't have the button, you still can hit enter to submit that form/request -->
     </form>
 
-    <h2>More Inputs</h2>
+    <h3>More Inputs (checkbox)</h3>
     <form action="/birds">
       <input type="checkbox" name="agree_tos" id="agree" />
       <label for="agree">I agree to everything</label>
     </form>
+
+    <br />
+    <h3>3 options choose 1:</h3>
+    <div>
+      <label for="xs">Extra Small (XS)</label>
+      <input type="radio" name="size" id="xs" value="xs" />
+      <label for="s">Small (S)</label>
+      <input type="radio" name="size" id="s" value="s" />
+      <label for="m">Medium (M)</label>
+      <input type="radio" name="size" id="m" value="m" />
+      <!-- the three radios should have the same name so that only one can be selected at once -->
+      <!-- the value is the value sent to the server, and it should be unique -->
+    </div>
+
+    <br />
+    <h3>Choose from a List:</h3>
+    <div>
+      <label for="meal">Please Select an Entree</label>
+      <select name="Meal" id="meal">
+        <option value="" selected>-- Please Choose an Option --</option>
+        <!-- Selected: specify the pre-selected value -->
+        <option value="fish">Fish</option>
+        <option value="veg">Vegetarian</option>
+        <option value="steak">Steak</option>
+      </select>
+    </div>
+    <br />
+    <h3>volume:</h3>
+    <label>
+      Amount of Cheese:
+      <input
+        type="range"
+        min="1"
+        max="10"
+        name="cheeseLevel"
+        value="7"
+        step="2"
+      />
+      <!-- set minimum and maximum values using min and max,
+      and now you can only step 10 times when scorlling -->
+      <!-- step="2": jump 2 units at a time -->
+      <!-- value="75": default value is set to 7 -->
+    </label>
+    <br />
+    <h3>textarea:</h3>
+    <div>
+      <label for="request">Any Special Requests?</label>
+      <br />
+      <textarea
+        name="Requests"
+        id="request"
+        cols="30"
+        rows="10"
+        placeholder="Type Here"
+      ></textarea>
+      <!-- textarea is not an input -->
+    </div>
+    <!-- almost everything as an input with a "type" except for <select> -->
   </body>
 </html>
