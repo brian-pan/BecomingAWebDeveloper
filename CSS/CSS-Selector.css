@@ -1,0 +1,30 @@
+/* Universal Selector */
+* {
+  color: pink;
+  /* border: 1px solid red; useful when debug */
+}
+
+/* Element Selector (select by types) */
+body {
+  /* body is the biggest section, also a type */
+  background-color: #ffeaca;
+}
+button {
+  /* button is a type */
+  font-size: 30px;
+}
+
+/* multiple selectors / selector list */
+h1,
+h2 {
+  color: chocolate;
+}
+
+/* ID selector (select only one item), don't use */
+#signup {
+  /* only one thing on one page has 1 unique id */
+  background-color: #f1faee;
+  color: #1d3537;
+}
+
+/* Class Selector (select a group of items), good use*/
