@@ -1,0 +1,30 @@
+a {
+  letter-spacing: 0.2rem;
+  letter-spacing: 10px;
+  text-decoration: none; /*remove all text decorations, especially useful to eliminate hyperlinks */
+  line-height: 2; /* double spaced */
+  line-height: 3em;
+}
+button {
+  color: teal; /* change button TEXT color */
+  background-color: #d3beab; /* hexadecimal range: 0-F */
+}
+p {
+  color: indianred;
+  background-color: rgb(89, 151, 0); /* range: 0-255 */
+  font-weight: normal; /* == font-weight: 400; */
+}
+h2 {
+  color: olive;
+  width: 50%; /* 50 out of 100 */
+  text-align: center; /* the 50% out of 50% width */
+  font-weight: 700; /* == font-weight: bold; */
+  text-decoration: underline; /* underline the text */
+  text-decoration: blue underline; /* change line color */
+  text-decoration: #f78120 underline; /* can use hex color */
+  text-decoration: #f78120 underline wavy; /* line shape */
+  font-size: 30px; /* change size using pixels commonly used */
+  font-family: Arial; /* change font style, broswer few default options, install teach in further lecs */
+  font-family: Fantasy, Geneva, Tahoma, sans-serif; /* fall back, if no verdana installed, use geneva, and so on */
+  text-transform: uppercase; /* uppercase */
+}
