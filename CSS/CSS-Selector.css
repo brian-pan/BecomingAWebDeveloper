@@ -13,7 +13,10 @@ button {
   /* button is a type */
   font-size: 30px;
 }
-
+span {
+  color: coral;
+  /* select all spans */
+}
 /* multiple selectors / selector list */
 h1,
 h2 {
@@ -28,3 +31,24 @@ h2 {
 }
 
 /* Class Selector (select a group of items), good use*/
+.tag {
+  /* tag is a class  */
+  background-color: #e63946;
+  color: #f1faee;
+  font-size: 30px;
+}
+
+/* exercise for CSS selectors
+/* Make all LI's blue */
+/* li {
+    color: blue;
+}
+/* Make everything with the class of 'done' grey*/
+/* .done {
+    color: grey;
+}
+/* Make the element with the id of 'clear' have a red BG and white text */
+/* #clear {
+    background-color: red;
+    color: white;
+/* } */
