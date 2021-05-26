@@ -7,7 +7,7 @@
 /* Element Selector (select by types) */
 body {
   /* body is the biggest section, also a type */
-  background-color: #ffeaca;
+  background-color: #fbedd7;
 }
 button {
   /* button is a type */
@@ -52,3 +52,17 @@ h2 {
     background-color: red;
     color: white;
 /* } */
+
+/* Descendant Selector */
+li a {
+  /* select all <a>'s that are nested inside an <li> */
+  /* note: a == anchor tags, which are links */
+  color: teal;
+}
+span a {
+  color: tomato;
+}
+section span a {
+  /* not recommend, should use class */
+  color: turquoise;
+}
