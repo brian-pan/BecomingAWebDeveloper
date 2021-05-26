@@ -1,6 +1,6 @@
 /* Universal Selector */
 * {
-  color: pink;
+  color: black;
   /* border: 1px solid red; useful when debug */
 }
 
@@ -38,7 +38,7 @@ h2 {
   font-size: 30px;
 }
 
-/* exercise for CSS selectors
+/* coding exercise 9
 /* Make all LI's blue */
 /* li {
     color: blue;
@@ -65,4 +65,77 @@ span a {
 section span a {
   /* not recommend, should use class */
   color: turquoise;
+}
+
+/* coding exercise 10*/
+/* header a {
+  font-size: 30px;
+  color: teal;
+}
+#dislikes a {
+  font-weight: 700;
+  color: red;
+} */
+
+/* Adjacent Selector (select the one after another) */
+input + button {
+  background-color: pink;
+}
+/* if you have more than one matches it will apply to all */
+h2 + button {
+  /* every button after the h2 */
+  font-size: 15px;
+}
+
+/* Direct Child Selector (i.e., select one level down)*/
+footer > a {
+  /* the direct child is not necessary the first child */
+  color: #457b9d;
+}
+
+/* Attribute Selector */
+input[type="password"] {
+  color: aliceblue;
+}
+/* Any other attributes works too: */
+section[class="post"] {
+  background-color: azure;
+}
+
+/* Pseudo Classes (keyword added to a selector that specifies a special state of the selected elements) */
+a:hover {
+  /* select any <a> element when "hovered */
+  color: orange;
+}
+
+button:hover {
+  background-color: pink;
+  color: whitesmoke;
+}
+
+/* hovered button in some Class "X", for ex: class "post" */
+.post button:hover {
+  background-color: #e63946;
+  color: #f1faee;
+}
+
+.post button:active {
+  background-color: turquoise;
+  color: #fbedd7;
+}
+
+.post:nth-of-type(2n + 1) {
+  background-color: rgb(201, 226, 226);
+}
+/* Coding Exercise 11*/
+/* div:nth-of-type(2n) {
+  background-color: black;
+}
+div:nth-of-type(2n+1) {
+  background-color: red;
+} */
+
+/* Pseudo Elements (select smaller, more specific parts) */
+h2::first-letter {
+  font-size: 35px;
 }
