@@ -9,6 +9,12 @@ body {
   /* body is the biggest section, also a type */
   background-color: #fbedd7;
 }
+/* inheritance from partents */
+button,
+input {
+  color: inherit;
+}
+
 button {
   /* button is a type */
   font-size: 30px;
@@ -138,4 +144,13 @@ div:nth-of-type(2n+1) {
 /* Pseudo Elements (select smaller, more specific parts) */
 h2::first-letter {
   font-size: 35px;
+}
+
+p::selection {
+  /* apply to only <p>'s */
+  background-color: #fcbf49;
+}
+::selection {
+  /* apply to all */
+  background-color: #fcbf49;
 }
