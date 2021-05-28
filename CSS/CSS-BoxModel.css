@@ -1,0 +1,45 @@
+div {
+  width: 200px;
+  height: 200px;
+  /* background-color: #f5d1d2; */
+}
+
+h1 {
+  background-color: wheat;
+  width: 130px;
+}
+
+#one {
+  background-color: #e5989b;
+  border-width: 5px;
+  /* pixels are commonly used in border-width */
+  border-color: black;
+  border-style: solid;
+  /* width and style are required for a border to appear */
+
+  /* Now the whole box is 210*210px (shifted to the right) */
+  /* if want whole box to be exact 200*200px, do: */
+  box-sizing: border-box;
+}
+#two {
+  background-color: #b5838d;
+  border-color: whitesmoke;
+  border-width: 3px;
+  border-style: dashed;
+  border-left-width: 5px;
+  border-right-color: teal;
+  border-bottom-style: dotted;
+}
+#three {
+  background-color: #6d6875;
+  /* can do many thing in a row: */
+  border: 4px solid black;
+  /* can modify individually after set up the whole: */
+  border-left-style: dotted;
+  /* round corner: */
+  border-radius: 25%;
+  /* can take up to 4 variables to make different shapes: */
+  border-radius: 10% 30% 50% 70%;
+  /* A nice looking one: */
+  border-radius: 10px 100px / 120px;
+}
