@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  /* default is 8px */
+}
+
 div {
   width: 200px;
   height: 200px;
@@ -7,6 +12,7 @@ div {
 h1 {
   background-color: wheat;
   width: 130px;
+  padding-left: 30px;
 }
 
 #one {
@@ -20,6 +26,7 @@ h1 {
   /* Now the whole box is 210*210px (shifted to the right) */
   /* if want whole box to be exact 200*200px, do: */
   box-sizing: border-box;
+  margin-left: 50px;
 }
 #two {
   background-color: #b5838d;
@@ -43,3 +50,12 @@ h1 {
   /* A nice looking one: */
   border-radius: 10px 100px / 120px;
 }
+
+/* padding (space b/t border and inside text) */
+button {
+  padding: 10px;
+  padding: 10px 20px 30px 40px;
+  padding: 10px 20px;
+}
+
+/* margin (space b/t one border with other borders) */
