@@ -1,0 +1,28 @@
+h1 {
+  background-color: blanchedalmond;
+  border: 1px solid red;
+}
+
+h1 {
+  background-color: blanchedalmond;
+  border: 1px solid red;
+  display: inline;
+  /* h1 change from block to inline element */
+  /* inline element do not take all spaces of the whole line */
+}
+
+span {
+  background: rgb(180, 113, 113);
+  background-color: peachpuff;
+  border: 1px solid black;
+  display: block;
+}
+
+div {
+  height: 200px;
+  width: 200px;
+  background-color: goldenrod;
+  border: 5px solid black;
+  display: inline-block;
+  margin: 50px;
+}
