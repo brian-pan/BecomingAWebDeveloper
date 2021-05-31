@@ -1,0 +1,51 @@
+section {
+  background-color: #f7ede2;
+  width: 800px;
+  height: 800px;
+}
+
+div {
+  background-color: #f6bd60;
+  width: 50%;
+  height: 50%;
+}
+/* since this div is inside section, then div's size is 50% of the section size, regardless the actual size of section */
+
+h1 {
+  font-size: 40px;
+  border: 1px solid red;
+  line-height: 200%;
+  /* line height is twice the font size */
+}
+
+article {
+  font-size: 30px;
+}
+/* article here is their parents, so change in parent size reflect in changes in childs when using "em" */
+h2 {
+  font-size: 2em;
+  margin-left: 1em;
+}
+p {
+  font-size: 1em;
+}
+h3 {
+  font-size: 1.5em;
+}
+button {
+  font-size: 1em;
+  padding: 0 1em;
+  border-radius: 0.5em;
+  background-color: #d9ed92;
+  color: #184e77;
+}
+button:hover {
+  font-size: 1em;
+  padding: 0 1em;
+  border-radius: 0.5em;
+  background-color: #184e77;
+  color: #f7ede2;
+}
+
+/* the "rem" unit: */
+/* use rem will only scale based on the root px */
