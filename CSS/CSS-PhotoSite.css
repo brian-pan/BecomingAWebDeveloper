@@ -1,0 +1,21 @@
+img {
+  /* to start with: */
+  width: 100px;
+}
+
+img {
+  width: 30%;
+  margin: 1.666%;
+  /* the images will shrink when the window is shrinked when using % */
+  margin: calc(10% / 6);
+  /* same thing, you can see the logic more clearly */
+}
+nav {
+  text-transform: uppercase;
+  border-bottom: 2px solid #f1f1f1;
+  width: 30%;
+  margin-left: calc(10% / 6);
+  padding: 1.2em 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5em;
+}
