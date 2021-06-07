@@ -9,6 +9,9 @@ h1 {
 #container div {
   width: 200px;
   height: 200px;
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 700;
 }
 
 #container {
@@ -29,10 +32,39 @@ h1 {
   justify-content: flex-start;
   /* this is the default */
   justify-content: flex-end;
-  justify-content: center;
   justify-content: space-between;
   /* spaces are evenly split b/t the elements */
   justify-content: space-around;
   /* gives each element even spaces around them */
   justify-content: space-evenly;
+  justify-content: flex-start;
+  justify-content: center;
+
+  /* flex-wrap: the items fit in when the space isn't enough*/
+  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
+  flex-wrap: nowrap;
+
+  /* justify-content: is along the main axis */
+  /* align-items: is along the cross axis */
+  align-items: flex-start;
+  /* this is the default */
+  align-items: flex-end;
+  align-items: center;
+}
+
+#container div:nth-of-type(3) {
+  height: 300px;
+}
+#container div:nth-of-type(5) {
+  height: 400px;
+}
+#container div:nth-of-type(4) {
+  height: 150px;
+  font-size: 4em;
+}
+
+#container {
+  align-items: baseline;
+  /* using letters, make letters in a straight line, the div colors follow (not determined by color positions) */
 }
