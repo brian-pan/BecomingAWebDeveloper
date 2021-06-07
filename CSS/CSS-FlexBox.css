@@ -1,0 +1,38 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+#container div {
+  width: 200px;
+  height: 200px;
+}
+
+#container {
+  background-color: #003049;
+  width: 90%;
+  height: 500px;
+  margin: 0 auto;
+  border: 5px solid blanchedalmond;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-direction: column;
+  /* divs will be condensed if no enough room */
+  flex-direction: column-reverse;
+  flex-direction: row;
+  /* It determines the main axis */
+  /* This is the default */
+
+  justify-content: flex-start;
+  /* this is the default */
+  justify-content: flex-end;
+  justify-content: center;
+  justify-content: space-between;
+  /* spaces are evenly split b/t the elements */
+  justify-content: space-around;
+  /* gives each element even spaces around them */
+  justify-content: space-evenly;
+}
