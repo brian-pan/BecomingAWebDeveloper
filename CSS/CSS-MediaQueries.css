@@ -1,0 +1,86 @@
+/* pre set up */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  font-size: 6em;
+  text-align: center;
+}
+nav {
+  font-size: 1.5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul,
+li {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* Media Queries */
+@media (width: 800px) {
+  /* this means when width is exactly 800px, then ... */
+  h1 {
+    color: purple;
+  }
+}
+@media (min-width: 800px) {
+  /* minimum 800px or upwards */
+  h1 {
+    color: purple;
+  }
+}
+@media (max-width: 800px) {
+  /* maximum 800px or upwards */
+  h1 {
+    color: green;
+  }
+}
+@media (min-width: 600px) and (max-width: 800px) {
+  /* maximum 800px or upwards */
+  h1 {
+    color: yellowgreen;
+  }
+}
+@media (orientation: landscape) {
+  body {
+    background-color: antiquewhite;
+  }
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 4em;
+  }
+}
+@media (max-width: 576px) {
+  h1 {
+    font-size: 3em;
+  }
+}
+
+/* finally to make a response nav: */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 4em;
+  }
+  nav,
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 576px) {
+  h1 {
+    font-size: 3em;
+  }
+}
