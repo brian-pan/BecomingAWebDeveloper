@@ -1,4 +1,8 @@
 /* CSS Reset */
+
+* {
+  box-sizing: border-box;
+}
 html,
 body,
 div,
@@ -132,15 +136,48 @@ html {
 
 body {
   background-color: #60aaffe0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
 }
 
+.nav {
+  width: 100%;
+  padding: 25px 25px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.logo {
+  text-align: center;
+  flex-basis: 1;
+  justify-content: flex-start;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  flex-basis: 75%;
+}
+.nav ul a {
+  color: #fffdf7;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: all 80ms;
+  margin-right: 75px;
+}
+.nav ul a:hover {
+  border-bottom: 2px solid #fffdf7;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .panel {
   background-color: #fffdf7;
-  border-radius: 0.8em;
+  border-radius: 1em;
   padding: 1em 1.2em;
   width: 100%;
   max-width: 960px;
@@ -148,6 +185,7 @@ body {
   flex-direction: column;
   text-align: center;
   text-transform: uppercase;
+  margin: 0 auto;
 }
 
 .plan {
@@ -200,12 +238,17 @@ body {
   padding: 15px 35px;
   text-decoration: none;
   margin: 25px 0;
-  transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out, transform 80ms;
 }
 .plan-button:hover,
 .plan-button:focus {
   color: #fffdf7;
   background-color: #348efe;
+  border: 1px solid #348efe;
+}
+.plan-button:active {
+  transform: translateY(0.15em);
+  box-shadow: 0.3em 0.5em 0.5em -0.5em #f4f1de;
 }
 
 @media (min-width: 900px) {
