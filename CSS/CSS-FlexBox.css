@@ -67,4 +67,43 @@ h1 {
 #container {
   align-items: baseline;
   /* using letters, make letters in a straight line, the div colors follow (not determined by color positions) */
+
+  /* control the spaces of "columns": */
+  /* flex-wrap is needed or it will not do anything */
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: center;
+}
+
+/* change one thing at a time */
+div:nth-of-type(3) {
+  align-self: center;
+}
+div:nth-of-type(2) {
+  align-self: flex-end;
+}
+
+#container div {
+  width: 200px;
+  height: 200px;
+  /* max-width: 300px; */
+  text-align: center;
+  flex-basis: 600px;
+}
+
+div:nth-of-type(1) {
+  flex-grow: 1;
+  flex-shrink: 2;
+}
+div:nth-of-type(5) {
+  flex-grow: 2;
+}
+
+main .siderbar {
+  background-color: #6930c3;
+  border: 2px solid white;
+  flex: 1;
+}
+main .maincontent {
+  background-color: #80ffdb;
 }
