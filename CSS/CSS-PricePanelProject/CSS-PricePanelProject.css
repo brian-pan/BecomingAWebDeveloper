@@ -207,3 +207,17 @@ body {
   color: #fffdf7;
   background-color: #348efe;
 }
+
+@media (min-width: 900px) {
+  .panel {
+    flex-direction: row;
+  }
+  .plan {
+    border-bottom: none;
+    border-right: 1px solid #e1f1ff;
+    padding: 25px 25px;
+  }
+  .plan:last-child {
+    border-right: none;
+  }
+}
