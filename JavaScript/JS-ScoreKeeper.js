@@ -18,10 +18,12 @@ roundsSelect.addEventListener('change', function () {
 p1Button.addEventListener('click', function () {
     if (!isGameOver) {
         p1Score ++;
-        if (p1Score === winningScore) {
+        if (p1Score === Math.ceil(winningScore/2)) {
             isGameOver = true;
             p1DisPlay.classList.add('winner');
             p2DisPlay.classList.add('loser');
+            p1Button.disabled = true;
+            p2Button.disabled = true;
         }
         p1DisPlay.textContent = p1Score;
     }
@@ -29,10 +31,12 @@ p1Button.addEventListener('click', function () {
 p2Button.addEventListener('click', function () {
     if (!isGameOver) {
         p2Score ++;
-        if (p2Score === winningScore) {
+        if (p2Score === Math.ceil(winningScore/2)) {
             isGameOver = true;
             p2DisPlay.classList.add('winner');
             p1DisPlay.classList.add('loser');
+            p1Button.disabled = true;
+            p2Button.disabled = true;
         }
         p2DisPlay.textContent = p2Score;
     }
@@ -47,4 +51,6 @@ function reset() {
     p2DisPlay.textContent = p2Score;
     p1DisPlay.classList.remove('winner', 'loser');
     p2DisPlay.classList.remove('winner', 'loser');
+    p1Button.disabled = false;
+    p2Button.disabled = false;
 }
