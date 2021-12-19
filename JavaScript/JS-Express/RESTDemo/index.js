@@ -81,6 +81,12 @@ app.patch('/comments/:id', (req, res) => {
     res.redirect('/comments');
 })
 
+//delete a specific comment (DELETE - Destroy):
+app.delete('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    comments = comments.filter(c => c.id !== id) //returns a new array, no mutating
+    res.redirect('/comments');
+})
 
 
 
