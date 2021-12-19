@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Comment</title>
+  </head>
+  <body>
+    <h1>Submit a new comment</h1>
+    <!-- action = "the route we want data sent to" -->
+    <!-- method = "POST" or method = "GET" -->
+    <form action="/comments" method="post">
+      <section>
+        <label for="username">Enter Username:</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="username"
+          name="username"
+        />
+      </section>
+      <br />
+      <section>
+        <label for="comment">Enter Your Comment:</label>
+        <br />
+        <textarea name="comment" id="comment" cols="30" rows="5"></textarea>
+      </section>
+      <div>
+        <button>Submit</button>
+      </div>
+    </form>
+    <div>
+      <h3>Click <a href="/comments">here</a> to go back Index</h3>
+    </div>
+  </body>
+</html>
