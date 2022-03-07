@@ -18,6 +18,16 @@ const morgan = require('morgan');
 //     return next();
 // })
 
+app.use((req, res, next) => {
+    const {password} = req.query;
+    if (password === 'chickennugget') {
+        next();
+    }
+    res.send('Need password')
+})
+
+
+
 app.use(morgan('tiny'));
 app.use((req, res, next) => {
     req.requestTime = Date.now();
@@ -38,6 +48,10 @@ app.use('/dogs', (req, res, next) => {
 app.get('/dogs', (req, res) => {
     console.log(`REQUEST DATE: ${req.requestTime}`);
     res.send('woof')
+})
+
+app.get('/secret', (req, res) => {
+    res.send('My secret is: ...')
 })
 
 app.use((req,res) => {
