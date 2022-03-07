@@ -30,9 +30,18 @@ app.get('/', (req, res) => {
     res.send('home page') //res.send will stop running code
 })
 
+app.use('/dogs', (req, res, next) => {
+    console.log('I love dogs. Not really.');
+    next();
+})
+
 app.get('/dogs', (req, res) => {
     console.log(`REQUEST DATE: ${req.requestTime}`);
     res.send('woof')
+})
+
+app.use((req,res) => {
+    res.status(404).send('Not Found!')
 })
 
 app.listen(3000, () => {
