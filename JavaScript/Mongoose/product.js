@@ -48,6 +48,7 @@ const productSchema = new mongoose.Schema({
 //     console.log(`- from ${this.name}`);
 // }
 
+//INSTANCE METHODS:
 productSchema.methods.toggleOnSale = function() {
     this.onSale = !this.onSale;
     return this.save();
@@ -59,6 +60,9 @@ productSchema.methods.addCategory = function(newCate) {
 }
 
 const Product = mongoose.model('Product', productSchema);
+
+//STATIC METHODS:
+
 
 const findProduct = async () => {
     const foundProduct = await Product.findOne({name: 'Mountain Bike'});
