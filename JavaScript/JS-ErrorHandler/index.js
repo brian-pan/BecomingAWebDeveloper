@@ -55,13 +55,16 @@ app.get('/secret', verifyPassword, (req, res) => {
     res.send('My secret is: ...')
 })
 
+app.get('/admin', (req, res) => {
+    throw new AppError('You are not an admin!', 403)
+})
+
 app.use((req,res) => {
     res.status(404).send('Not Found!')
 })
 
 app.use((err, req, res, next) => {
-    const {status = 500} = err;
-    const {message = 'Something Went Wrong.'} = err;
+    const {status = 500, message = 'Something Went Wrong.'} = err;
     res.status(status).send(message);
 })
 
