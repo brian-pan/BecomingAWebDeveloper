@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const { measureMemory } = require('vm');
 const AppError = require('./AppError')
 //app.use(morgan('dev')) //tell express on every single request use the middleware called morgan
 
@@ -60,7 +61,8 @@ app.use((req,res) => {
 
 app.use((err, req, res, next) => {
     const {status = 500} = err;
-    res.status(status).send('Error!!')
+    const {message = 'Something Went Wrong.'} = err;
+    res.status(status).send(message);
 })
 
 
