@@ -32,7 +32,7 @@ app.post('/register', async (req, res) => {
     const hash = await bcrypt.hash(password, 12);
     const user = new User({
         username, 
-        password: hash
+        hashedPassword: hash
     })
     await user.save();
     res.redirect('/')
@@ -40,6 +40,17 @@ app.post('/register', async (req, res) => {
 
 app.get('/login', (req, res) => {
     res.render('login');
+})
+
+app.post('/login', async(req, res) => {
+    const { username, password } = req.body;
+    const user = await User.findOne({username})
+    const isValidUser = await bcrypt.compare(password, user.hashedPassword);
+    if(isValidUser) {
+        res.send('Welcome.')
+    } else {
+        res.send('Please try again.')
+    }
 })
 
 app.get('/secret', (req, res) => {
