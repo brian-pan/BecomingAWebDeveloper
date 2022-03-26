@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const User = require('./models/User');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const session = require('express-session');
 
 mongoose.connect('mongodb://localhost:27017/authDemo', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -39,11 +39,8 @@ app.get('/register', (req, res) => {
 
 app.post('/register', async (req, res) => {
     const { password, username } = req.body;
-    const hash = await bcrypt.hash(password, 12);
-    const user = new User({
-        username, 
-        hashedPassword: hash
-    })
+    // const hash = await bcrypt.hash(password, 12);
+    const user = new User({ username, password: password });
     await user.save();
     res.redirect('/login')
 })
@@ -54,10 +51,9 @@ app.get('/login', (req, res) => {
 
 app.post('/login', async(req, res) => {
     const { username, password } = req.body;
-    const user = await User.findOne({username})
-    const isValidUser = await bcrypt.compare(password, user.hashedPassword);
-    if(isValidUser) {
-        req.session.user_id = user._id; //if you successfully log in, we'll store your user ID in the session.
+    const foundUser = await User.findAndValidate(username, password);
+    if (foundUser) {
+        req.session.user_id = foundUser._id; //if you successfully log in, we'll store your user ID in the session.
         res.redirect('/secret')
     } else {
         res.redirect('/login')
@@ -70,11 +66,13 @@ app.post('/logout', (req, res) => {
     res.redirect('/login')
 })
 
-app.get('/secret', (req, res) => {
-    if(!req.session.user_id){
-        return res.redirect('/login')
-    }
+//set up first end point:
+app.get('/secret', checkLoginStats, (req, res) => {
     res.render('secret')
+})
+//set up another end point:
+app.get('/secret2', checkLoginStats, (req, res) => {
+    res.send('SECOND SECRET HELLO HELLO')
 })
 
 //listen:
