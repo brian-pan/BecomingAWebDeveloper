@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
-const Button = ({color, text, handleClick}) => { //deconstruct way
+const Button = ({color, text, onClick}) => { //deconstruct way
     return (
-        <button onClick={handleClick} style={{backgroundColor: color}} className="btn">
+        <button onClick={onClick} style={{backgroundColor: color}} className="btn">
             {text}
         </button>
     )
@@ -15,7 +15,7 @@ Button.defaultProps = {
 Button.propTypes = {
     text: PropTypes.string,
     color: PropTypes.string,
-    handleClick: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 export default Button;

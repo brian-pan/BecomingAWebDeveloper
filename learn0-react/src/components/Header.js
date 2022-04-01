@@ -15,16 +15,15 @@ import Button from './Button'
 //title = props.title -> {title} = props
 //id = req.params.id -> {id} = req.params
 //equivalently:
-const Header = ({ title }) => { //deconstruct way
-    const whenClick = (e) => {
-        console.log('Clicked!');
-    }
+const Header = ({ title, onAdd, isFormOpen }) => { //deconstruct way
+
     return (
         <header className="header">
             <h1>{title}</h1>
-            <Button color='green' text='Hello' handleClick={whenClick}/>
-            <Button color='lightBlue' text='Hello2'/>
-            <Button color='navy' text='Hello3'/>
+            <Button 
+            color={isFormOpen ? 'red' : 'green'}
+            text={isFormOpen ? 'Close' : 'Open'}
+            onClick={onAdd} />
         </header>
     ) 
 }
