@@ -1,71 +1,119 @@
-import { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import "./App.css";
 
 //components
-import Header from './components/Header';
-import Tasks from './components/Tasks';
-import AddTask from './components/AddTask';
+import Header from "./components/Header";
+import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
+import Footer from "./components/Footer";
+import About from "./components/About";
 
 function App() {
-  const [showAddTask, setShowAddTask] = useState(false)
+  const [showAddTask, setShowAddTask] = useState(false);
 
-  const [tasks, setTasks] = useState( //[value, modify fn] //"App-level component"
-        [
-            {
-                id: 1,
-                text: 'Learn React',
-                date: '2022.3.31',
-                time: '5:10pm',
-                reminder: true
-            },
-            {
-                id: 2,
-                text: 'Learn React',
-                date: '2022.3.31',
-                time: '5:20pm',
-                reminder: true
-            },
-            {
-                id: 3,
-                text: 'Learn wtf',
-                date: '2022.3.32',
-                time: '5:70pm',
-                reminder: true
-            },
-        ]
-    ) 
-    
-    //add task
-    const addTask = (task) => {
-      const randomId = Math.floor(Math.random() * 10000) + 1; //no backend, randomly create an id
-      const newTask = { randomId, ...task }
-      setTasks([...tasks, newTask]) //不是只有obj可以这么写
-    }
+  const [tasks, setTasks] = useState([]); //[value, modify fn] //"App-level component")
 
-    //delete task
-    const deleteTask = (id) => {
-      const newTasks = [...tasks].filter(task => task.id !== id); //state is immutable
-        setTasks(newTasks);
-    }
+  useEffect(() => {
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks();
+      console.log(tasksFromServer);
+      setTasks(tasksFromServer);
+    };
+    getTasks();
+  }, []);
 
-    //Toggle Reminder
-    const toggleReminder = (id) => {
-      setTasks(tasks.map(task => (
-        task.id === id ? 
-        {
-          ...task, 
-          reminder: !task.reminder
-        } : task
-      )))
-    }
+  //fetch tasks fn
+  const fetchTasks = async () => {
+    const res = await fetch("http://localhost:5000/tasks");
+    const data = await res.json();
+    return data;
+  };
+
+  //add task
+  const addTask = async (task) => {
+    const res = await fetch(`http://localhost:5000/tasks/`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(task),
+    });
+
+    const data = await res.json();
+
+    setTasks([...tasks, data]);
+
+    //   const randomId = Math.floor(Math.random() * 10000) + 1; //no backend, randomly create an id
+    //   const newTask = { randomId, ...task };
+    //   setTasks([...tasks, newTask]);
+  };
+
+  //delete task
+  const deleteTask = async (id) => {
+    await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: "DELETE",
+    });
+    const newTasks = [...tasks].filter((task) => task.id !== id); //state is immutable
+    setTasks(newTasks);
+  };
+
+  //Toggle Reminder
+  const toggleReminder = async (id) => {
+    const updTasks = tasks.map((task) =>
+      task.id === id
+        ? {
+            ...task,
+            reminder: !task.reminder,
+          }
+        : task
+    );
+    setTasks(updTasks);
+
+    const updTask = updTasks.find((task) => task.id === id);
+    await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(updTask),
+    });
+    // console.log(updTask);
+  };
 
   return (
-    <div className="App">
-      <Header title="Task Tracker" onAdd={() => setShowAddTask(!showAddTask)} isFormOpen={showAddTask}/>
-      { showAddTask && <AddTask onAdd={addTask}/> } 
-      {tasks.length ? (<Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>) : ('All done! No more tasks to do!')}
-    </div>
+    <Router>
+      <div className="App">
+        <Header
+          title="Task Tracker"
+          onAdd={() => setShowAddTask(!showAddTask)}
+          isFormOpen={showAddTask}
+        />
+        <Routes>
+          <Route
+            path="/"
+            exact
+            element={
+              <>
+                {showAddTask && <AddTask onAdd={addTask} />}
+                {tasks.length ? (
+                  <Tasks
+                    tasks={tasks}
+                    onDelete={deleteTask}
+                    onToggle={toggleReminder}
+                  />
+                ) : (
+                  "All done! No more tasks to do!"
+                )}
+                <Footer />
+              </>
+            }
+          />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

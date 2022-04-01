@@ -1,6 +1,7 @@
 // import React from 'react';
-// import PropTypes from 'prop-types';
-import Button from './Button'
+import PropTypes from "prop-types";
+import Button from "./Button";
+import { useLocation } from "react-router-dom";
 
 // const Header = (props) => {
 //     console.log(props)
@@ -11,27 +12,31 @@ import Button from './Button'
 //     )
 // }
 
-
 //title = props.title -> {title} = props
 //id = req.params.id -> {id} = req.params
 //equivalently:
-const Header = ({ title, onAdd, isFormOpen }) => { //deconstruct way
+const Header = ({ title, onAdd, isFormOpen }) => {
+  //deconstruct way
 
-    return (
-        <header className="header">
-            <h1>{title}</h1>
-            <Button 
-            color={isFormOpen ? 'red' : 'green'}
-            text={isFormOpen ? 'Close' : 'Open'}
-            onClick={onAdd} />
-        </header>
-    ) 
-}
+  const location = useLocation();
+  return (
+    <header className="header">
+      <h1>{title}</h1>
+      {location.pathname === "/" && (
+        <Button
+          color={isFormOpen ? "red" : "green"}
+          text={isFormOpen ? "Close" : "Open"}
+          onClick={onAdd}
+        />
+      )}
+    </header>
+  );
+};
 
 //default value:
 Header.defaultProps = {
-    title: 'Learn React!!'
-}
+  title: "Learn React!!",
+};
 
 // Header.propTypes = {
 //     title: propTypes.string.isRequired,
@@ -58,15 +63,7 @@ Header.defaultProps = {
 //             <Button color='lightBlue' text='Hello2'/>
 //             <Button color='navy' text='Hello3'/>
 //         </header>
-//     ) 
+//     )
 // }
-
-
-
-
-
-
-
-
 
 export default Header;
