@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 320px) {
+  .header {
+    display: flex;
+    background-color: burlywood;
+    border-bottom: 1px solid black;
+    box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+  }
+  .header--title {
+    font-size: 1.5em;
+  }
+  .main {
+    // background-color: aqua;
+  }
+  .card--body {
+    // border: 1px solid red;
+    display: flex;
+    border-bottom: 1px solid gray;
+  }
+  .card--image {
+    // border: 1px solid brown;
+  }
+  .card--content {
+    // border: 1px solid green;
+  }
+  .card--location {
+    font-size: 1em;
+    margin: 0;
+  }
+  .card--title {
+    font-size: 1.5em;
+    margin: 0;
+    margin-bottom: 0.5em;
+  }
+  .card--date {
+    font-size: 0.8em;
+    margin: 0;
+  }
+  .card--description {
+    margin: 0;
+  }
+}
